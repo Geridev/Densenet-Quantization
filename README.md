@@ -163,6 +163,42 @@ converter.onnx_to_trt(
     max_batch=32
 )
 
+# --- 4. Convert TF -> TensorRT ---
+
+print("Converting TF to TRT FP32...")
+converter.tf_to_trt(
+    input_model=weights_path,
+    engine_file_path=f'{base_path}/{model_name}_fp32.trt',
+    only_weigths_of_model=model_name,
+    precision='fp32',
+    opt_batch=32,
+    max_batch=32
+)
+
+print("Converting TF to TRT FP16...")
+converter.tf_to_trt(
+    input_model=weights_path,
+    engine_file_path=f'{base_path}/{model_name}_fp16.trt',
+    only_weigths_of_model=model_name,
+    precision='fp16',
+    opt_batch=32,
+    max_batch=32
+)
+
+print("\nConverting TF to TRT INT8...")
+# (Make sure data/calibration exists first!)
+# (Run `python evaluation/prepare_calibration_set.py` first)
+converter.tf_to_trt(
+    input_model=weights_path,
+    engine_file_path=f'{base_path}/{model_name}_int8.trt',
+    only_weigths_of_model=model_name,
+    precision='int8',
+    calibration_images="data/calibration",
+    calibration_cache=f"{base_path}/{model_name}_int8.cache",
+    opt_batch=32,
+    max_batch=32
+)
+
 print("All conversions complete.")
 ```
 
@@ -203,7 +239,7 @@ python evaluation/main_evaluation.py
 This script reads the evaluation_results.csv and generates the final comparison plots.
 
 ```bash
-python evaluation/stats_v2.py
+python evaluation/stats.py
 ```
 This will save `DenseNet121_Comparison_v2.png` and `DenseNet201_Comparison_v2.png` to your root directory.
 
