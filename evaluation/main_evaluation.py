@@ -159,9 +159,9 @@ def run_evaluation():
             continue
 
         # --- ADDED TF BASELINE MODEL ---
-        models_to_evaluate.append(
-            {'name': f'{model_name}_TF_FP32', 'type': 'tf', 'path': weights_path, 'base_model': model_name}
-        )
+        #models_to_evaluate.append(
+        #    {'name': f'{model_name}_TF_FP32', 'type': 'tf', 'path': weights_path, 'base_model': model_name}
+        #)
         # ---------------------------------
 
         models_to_evaluate.extend([
