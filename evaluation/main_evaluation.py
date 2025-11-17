@@ -6,16 +6,16 @@ from tqdm import tqdm
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 # Import your existing converter
-from converter import ModelConverter
+from src.model_converter.converter import ModelConverter
 
 # Import the new modules
 from dataloader import create_dataloader
 from inference_engines import ONNXInferenceEngine, TRTInferenceEngine, TFInferenceEngine
 
 # --- Configuration ---
-DATA_DIR = "/kaggle/input/test-data/data/data/test"
-CALIBRATION_DIR = "/kaggle/input/test-data/data/data/calibration" # Use a subset of data for calibration
-WEIGHTS_DIR = "/kaggle/input/models_images/tensorflow2/default/1/models"
+DATA_DIR = "data/test"
+CALIBRATION_DIR = "data/calibration" # Use a subset of data for calibration
+WEIGHTS_DIR = "weights"
 MODELS_DIR = "models_generated"
 RESULTS_FILE = "evaluation_results.csv"
 

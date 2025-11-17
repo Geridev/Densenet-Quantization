@@ -7,7 +7,7 @@ import time
 import tensorflow as tf
 
 # We need this to reconstruct the model
-from utils import make_model 
+from src.model_converter.utils import make_model 
 
 # ==================================================================
 #                  NEW TENSORFLOW INFERENCE ENGINE
