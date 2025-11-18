@@ -11,6 +11,7 @@ scikit_learn==1.2.2
 tensorflow==2.18.0
 tensorrt_cu12==10.14.1.48.post1
 tf2onnx==1.16.1
-torch==2.6.0+cu124
-torchvision==0.21.0+cu124
+torch
+torchvision
 tqdm==4.67.1
+nvidia-cudnn-cu12==9.3.0.75
